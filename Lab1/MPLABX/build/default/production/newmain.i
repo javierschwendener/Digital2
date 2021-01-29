@@ -7,6 +7,27 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "newmain.c" 2
+
+
+
+
+
+#pragma config FOSC = XT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2629,28 +2650,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.h" 2 3
-# 1 "newmain.c" 2
+# 21 "newmain.c" 2
 
 
 
-
-
-
-
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 29 "newmain.c"
 int flag;
+
 
 void setup(void) {
 
@@ -2664,12 +2669,12 @@ void setup(void) {
     TRISB = 0;
     TRISC = 0;
     TRISD = 0;
-    flag = 0b00000000;
+    flag = 0;
     return;
 }
 
-void semaforo(void) {
 
+void semaforo(void) {
     PORTDbits.RD0 = 1;
     _delay((unsigned long)((1000)*(8000000/4000.0)));
     PORTDbits.RD0 = 0;
@@ -2678,34 +2683,55 @@ void semaforo(void) {
     PORTDbits.RD1 = 0;
     PORTDbits.RD2 = 1;
     _delay((unsigned long)((1000)*(8000000/4000.0)));
-    PORTDbits.RD0 = 0;
+    PORTD = 0;
+    return;
 }
+
 
 void main(void) {
     setup();
-    while (1) {
-        while (PORTAbits.RA0 == 1 && flag == 0b00000000) {
-            semaforo();
-            flag = 0b00000001;
-        }
-        while (flag == 0b00000001) {
 
-            while (PORTAbits.RA1 == 1) {
-                if (PORTB == 0){
-                    PORTB = 1;
+    while (1) {
+        if (PORTAbits.RA0 == 1 && flag == 0) {
+            semaforo();
+            flag = 1;
+            PORTB = 0;
+            PORTC = 0;
+            PORTD = 0;
+        }
+        while (flag == 1) {
+
+            if (PORTAbits.RA1 == 1) {
+                if(PORTB != 0){
+                    if(PORTBbits.RB7 == 1){
+                        PORTB = 0;
+                        PORTDbits.RD4 = 1;
+                        flag = 0;
+                    }
+                    PORTB = 2 * PORTB;
+                    _delay((unsigned long)((500)*(8000000/4000.0)));
                 }
-                else {
-                    PORTB = PORTB + PORTB;
+                else{
+                    PORTB = 1;
+                    _delay((unsigned long)((500)*(8000000/4000.0)));
                 }
             }
-            while (PORTAbits.RA2 == 2) {
-                if (PORTC == 0){
-                    PORTC = 1;
+            if (PORTAbits.RA2 == 1) {
+                if(PORTC != 0){
+                    if(PORTCbits.RC7 == 1){
+                        PORTC = 0;
+                        PORTDbits.RD3 = 1;
+                        flag = 0;
+                    }
+                    PORTC = 2 * PORTC;
+                    _delay((unsigned long)((500)*(8000000/4000.0)));
                 }
-                else {
-                    PORTC = PORTC + PORTC;
+                else{
+                    PORTC = 1;
+                    _delay((unsigned long)((500)*(8000000/4000.0)));
                 }
             }
         }
+
     }
 }
