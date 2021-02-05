@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "Lib1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,25 +6,11 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
+# 1 "Lib1.c" 2
 
 
 
 
-
-
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
 
 
 
@@ -2651,10 +2637,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.h" 2 3
-# 22 "newmain.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 23 "newmain.c" 2
+# 9 "Lib1.c" 2
 
 # 1 "./Lib1.h" 1
 # 14 "./Lib1.h"
@@ -2664,111 +2647,68 @@ extern __bank0 __bit __timeout;
 
 uint8_t table(uint8_t index);
 uint8_t adc(void);
-# 24 "newmain.c" 2
+# 10 "Lib1.c" 2
 
 
+uint8_t value;
+uint8_t adc_value;
 
-
-void setup(void) {
-
-    PORTA = 0;
-    PORTB = 0;
-    PORTC = 0;
-    PORTD = 0;
-    PORTE = 0;
-
-    ANSEL = 0;
-    ANSELH = 0b00000001;
-
-    TRISA = 0;
-    TRISB = 0b00000111;
-    TRISC = 0;
-    TRISD = 0;
-    TRISE = 0;
-
-    IOCB = 0b00000011;
-    ADCON0 = 0b01100001;
-    INTCON = 0b11001000;
-    PIE1 = 0b01000000;
-    T2CON = 0b00000100;
+uint8_t table(uint8_t index) {
+    switch (index) {
+        case 0:
+            value = 0b00111111;
+            break;
+        case 1:
+            value = 0b00000110;
+            break;
+        case 2:
+            value = 0b01011011;
+            break;
+        case 3:
+            value = 0b01001111;
+            break;
+        case 4:
+            value = 0b01100110;
+            break;
+        case 5:
+            value = 0b01101101;
+            break;
+        case 6:
+            value = 0b01111101;
+            break;
+        case 7:
+            value = 0b00000111;
+            break;
+        case 8:
+            value = 0b01111111;
+            break;
+        case 9:
+            value = 0b01100111;
+            break;
+        case 10:
+            value = 0b01110111;
+            break;
+        case 11:
+            value = 0b01111111;
+            break;
+        case 12:
+            value = 0b00111001;
+            break;
+        case 13:
+            value = 0b00111111;
+            break;
+        case 14:
+            value = 0b01111001;
+            break;
+        case 15:
+            value = 0b01110001;
+            break;
+    }
 }
 
-
-
-uint8_t variable;
-uint8_t multi;
-uint8_t flags;
-uint8_t flags2;
-uint8_t adece;
-uint8_t nib;
-
-
-
-void __attribute__((picinterrupt(("")))) isr(void) {
-
-    adece = adc();
-
-    if (PIR1bits.TMR2IF == 1) {
-        PIR1bits.TMR2IF = 0;
-        if (multi == 0b00000000) {
-
-            multi = 0b00000001;
-            PORTEbits.RE1 = 0;
-            PORTEbits.RE0 = 1;
-        } else {
-
-            multi = 0b00000000;
-            PORTEbits.RE0 = 0;
-            PORTEbits.RE1 = 1;
-        }
-    }
-
-
-    if (PORTBbits.RB0 == 1 && flags == 0b00000000) {
-
-        flags = 0b00000001;
-        PORTC++;
-    } else if (PORTBbits.RB0 == 0 && flags == 0b00000001) {
-        flags = 0b00000000;
-    }
-
-    if (PORTBbits.RB1 && flags2 == 0b00000000) {
-
-        flags2 = 0b00000001;
-        PORTC--;
-    } else if (PORTBbits.RB1 == 0 && flags2 == 0b00000001) {
-        flags2 = 0b00000000;
-    }
-    INTCONbits.RBIF = 0;
-}
-
-void main(void) {
-    setup();
-
-    while (1) {
-
-        if (adece > PORTC) {
-            PORTEbits.RE2 = 1;
-        } else {
-            PORTEbits.RE2 = 0;
-        }
-
-        if (multi == 0b00000000) {
-            nib = adece & 0b00001111;
-            table(nib);
-            PORTD = nib;
-            PORTD = table(nib);
-        } else {
-            nib = adece & 0b11110000;
-            nib = nib >> 4;
-            table(nib);
-            PORTD = nib;
-            PORTD = table(nib);
-        }
-
-        if (ADCON0bits.GO == 0) {
-            _delay((unsigned long)((5)*(8000000/4000.0)));
-            ADCON0bits.GO = 1;
-        }
+uint8_t adc(void) {
+    if (PIR1bits.ADIF == 1) {
+        adc_value = ADRESH;
+        PIR1bits.ADIF = 0;
     }
 }
