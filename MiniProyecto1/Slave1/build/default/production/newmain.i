@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "newmain.c" 2
-#pragma config FOSC = XT
+#pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -2650,10 +2650,49 @@ extern __bank0 __bit __timeout;
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 17 "newmain.c" 2
 
+# 1 "./spi.h" 1
+# 15 "./spi.h"
+typedef enum
+{
+    SPI_MASTER_OSC_DIV4 = 0b00100000,
+    SPI_MASTER_OSC_DIV16 = 0b00100001,
+    SPI_MASTER_OSC_DIV64 = 0b00100010,
+    SPI_MASTER_TMR2 = 0b00100011,
+    SPI_SLAVE_SS_EN = 0b00100100,
+    SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
+
+typedef enum
+{
+    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+    SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
+
+typedef enum
+{
+    SPI_CLOCK_IDLE_HIGH = 0b00010000,
+    SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
+
+typedef enum
+{
+    SPI_IDLE_2_ACTIVE = 0b00000000,
+    SPI_ACTIVE_2_IDLE = 0b01000000
+}Spi_Transmit_Edge;
+
+
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+void spiWrite(char);
+unsigned spiDataReady();
+char spiRead();
+# 18 "newmain.c" 2
+
 
 uint8_t adc;
+uint8_t temp;
 
 void setup(void) {
+
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
@@ -2661,28 +2700,39 @@ void setup(void) {
     PORTE = 0;
     ANSEL = 0b00000001;
     ANSELH = 0;
-    TRISA = 0;
+    TRISA = 0b00100001;
     TRISB = 0;
-    TRISC = 0;
     TRISD = 0;
     TRISE = 0;
+
     ADCON0 = 0b00000001;
     INTCON = 0b11000000;
     PIE1 = 0b01000000;
 }
 
+
 void __attribute__((picinterrupt(("")))) isr(void) {
+
     if (PIR1bits.ADIF == 1) {
         adc = ADRESH;
         PIR1bits.ADIF = 0;
+    }
+
+    if (PIR1bits.SSPIF == 1) {
+        PIR1bits.SSPIF = 0;
+        temp = spiRead();
+        spiWrite(adc);
     }
 }
 
 void main(void) {
     setup();
+
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     while (1) {
+
         if (ADCON0bits.GO == 0) {
-            _delay((unsigned long)((5)*(8000000/4000.0)));
+            _delay((unsigned long)((5)*(4000000/4000.0)));
             ADCON0bits.GO = 1;
         }
     }
