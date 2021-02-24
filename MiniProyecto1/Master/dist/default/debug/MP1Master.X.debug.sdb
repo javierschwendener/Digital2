@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"77 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
+"67 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
 [e E1369 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -81,9 +81,9 @@ SPI_ACTIVE_2_IDLE 64
 [v _ascii ascii `(uc  1 e 1 0 ]
 "24 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
 [v _setup setup `(v  1 e 1 0 ]
-"69
+"60
 [v _isr isr `II(v  1 e 1 0 ]
-"74
+"65
 [v _main main `(v  1 e 1 0 ]
 "12 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\spi.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
@@ -97,7 +97,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "229
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
-[s S111 . 1 `uc 1 RB0 1 0 :1:0 
+[s S130 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -107,11 +107,11 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 RB7 1 0 :1:7 
 ]
 "246
-[u S120 . 1 `S111 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES120  1 e 1 @6 ]
+[u S139 . 1 `S130 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES139  1 e 1 @6 ]
 "291
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
-[s S288 . 1 `uc 1 RC0 1 0 :1:0 
+[s S308 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -121,11 +121,11 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 RC7 1 0 :1:7 
 ]
 "308
-[u S297 . 1 `S288 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES297  1 e 1 @7 ]
+[u S317 . 1 `S308 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES317  1 e 1 @7 ]
 "353
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S267 . 1 `uc 1 RD0 1 0 :1:0 
+[s S287 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -135,13 +135,13 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 RD7 1 0 :1:7 
 ]
 "370
-[u S276 . 1 `S267 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES276  1 e 1 @8 ]
+[u S296 . 1 `S287 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES296  1 e 1 @8 ]
 "415
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
 "460
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
-[s S60 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S79 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -150,8 +150,8 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 ADIF 1 0 :1:6 
 ]
 "554
-[u S68 . 1 `S60 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES68  1 e 1 @12 ]
+[u S87 . 1 `S79 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES87  1 e 1 @12 ]
 "844
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "851
@@ -182,9 +182,20 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1665
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+[s S55 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1719
+[u S63 . 1 `S55 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES63  1 e 1 @140 ]
 "2178
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S367 . 1 `uc 1 BF 1 0 :1:0 
+[s S387 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -194,42 +205,42 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 SMP 1 0 :1:7 
 ]
 "2232
-[s S376 . 1 `uc 1 . 1 0 :2:0 
+[s S396 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S381 . 1 `uc 1 . 1 0 :2:0 
+[s S401 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S387 . 1 `uc 1 . 1 0 :2:0 
+[s S407 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S392 . 1 `uc 1 . 1 0 :2:0 
+[s S412 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S397 . 1 `uc 1 . 1 0 :2:0 
+[s S417 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S402 . 1 `uc 1 . 1 0 :2:0 
+[s S422 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S407 . 1 `S367 1 . 1 0 `S376 1 . 1 0 `S381 1 . 1 0 `S387 1 . 1 0 `S392 1 . 1 0 `S397 1 . 1 0 `S402 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES407  1 e 1 @148 ]
+[u S427 . 1 `S387 1 . 1 0 `S396 1 . 1 0 `S401 1 . 1 0 `S407 1 . 1 0 `S412 1 . 1 0 `S417 1 . 1 0 `S422 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES427  1 e 1 @148 ]
 "2557
 [v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
-[s S158 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S171 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -239,15 +250,15 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2583
-[s S167 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S180 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S171 . 1 `uc 1 . 1 0 :6:0 
+[s S184 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S174 . 1 `S158 1 . 1 0 `S167 1 . 1 0 `S171 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES174  1 e 1 @152 ]
+[u S187 . 1 `S171 1 . 1 0 `S180 1 . 1 0 `S184 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES187  1 e 1 @152 ]
 "2643
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2705
@@ -268,38 +279,26 @@ SPI_ACTIVE_2_IDLE 64
 [v _value value `uc  1 e 1 0 ]
 "14
 [v _adc_value adc_value `uc  1 e 1 0 ]
-"52 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
+"50 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
 [v _S1 S1 `uc  1 e 1 0 ]
-"53
+"51
 [v _S2 S2 `uc  1 e 1 0 ]
-"54
+"52
 [v _S3 S3 `uc  1 e 1 0 ]
-"55
+"53
 [v _vasc vasc `uc  1 e 1 0 ]
-"56
+"54
 [v _res1 res1 `uc  1 e 1 0 ]
-"57
+"55
 [v _res2 res2 `uc  1 e 1 0 ]
-"58
+"56
 [v _res3 res3 `uc  1 e 1 0 ]
-"60
-[v _bin1 bin1 `uc  1 e 1 0 ]
-"61
-[v _bin2 bin2 `uc  1 e 1 0 ]
-"62
-[v _bin3 bin3 `uc  1 e 1 0 ]
-"63
-[v _bin4 bin4 `uc  1 e 1 0 ]
-"64
-[v _bin5 bin5 `uc  1 e 1 0 ]
-"65
-[v _bin6 bin6 `uc  1 e 1 0 ]
-"66
+"58
 [v _carac carac `[16]uc  1 e 16 0 ]
-"74
+"65
 [v _main main `(v  1 e 1 0 ]
 {
-"200
+"124
 } 0
 "505 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -399,7 +398,7 @@ SPI_ACTIVE_2_IDLE 64
 "24 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"49
+"48
 } 0
 "76 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\Lib1.c
 [v _ascii ascii `(uc  1 e 1 0 ]
@@ -465,8 +464,8 @@ SPI_ACTIVE_2_IDLE 64
 [v Lcd_Port@a a `uc  1 a 1 2 ]
 "66
 } 0
-"69 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
+"60 C:\Users\USUARIO\MPLABXProjects\MP1Master.X\newmain.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"72
+"63
 } 0

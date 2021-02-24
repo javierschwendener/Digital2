@@ -46,6 +46,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "460
 [; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 460: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"1709
+[; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 1709:     struct {
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1708
+[; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 1708: typedef union {
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1719
+[; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 1719: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
 "2705
 [; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 2705: extern volatile unsigned char SPBRGH __attribute__((address(0x09A)));
 [v _SPBRGH `Vuc ~T0 @X0 0 e@154 ]
@@ -75,8 +86,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 554: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
 [v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
 [p mainexit ]
-"77 newmain.c
-[; ;newmain.c: 77:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"67 newmain.c
+[; ;newmain.c: 67:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1369 32 33 34 35 36 37 .. ]
 [n E1369 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1377 0 128 .. ]
@@ -117,8 +128,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;./LCD.h: 18: void Lcd_Write_String(char *a);
 [v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
-"194 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "2563 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h: 2563:     struct {
 [s S99 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -148,6 +157,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:\Program Files\Microchip\xc8\v2.31\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
+"194 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "1 newmain.c
 [; ;newmain.c: 1: 
 [p x FOSC          =      INTRC_NOCLKOUT ]
@@ -414,518 +425,288 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _setup ]
 [f ]
-"26
-[; ;newmain.c: 26:     PORTA = 0;
+"25
+[; ;newmain.c: 25:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"27
-[; ;newmain.c: 27:     PORTB = 0b00000111;
+"26
+[; ;newmain.c: 26:     PORTB = 0b00000111;
 [e = _PORTB -> -> 7 `i `uc ]
+"27
+[; ;newmain.c: 27:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
 "28
-[; ;newmain.c: 28:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;newmain.c: 28:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "29
-[; ;newmain.c: 29:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"30
-[; ;newmain.c: 30:     PORTE = 0;
+[; ;newmain.c: 29:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"31
-[; ;newmain.c: 31:     ANSEL = 0;
+"30
+[; ;newmain.c: 30:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"32
-[; ;newmain.c: 32:     ANSELH = 0;
+"31
+[; ;newmain.c: 31:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"33
-[; ;newmain.c: 33:     TRISA = 0;
+"32
+[; ;newmain.c: 32:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"34
-[; ;newmain.c: 34:     TRISB = 0;
+"33
+[; ;newmain.c: 33:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"35
-[; ;newmain.c: 35:     TRISCbits.TRISC0 = 0;
+"34
+[; ;newmain.c: 34:     TRISCbits.TRISC0 = 0;
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"36
-[; ;newmain.c: 36:     TRISCbits.TRISC1 = 0;
+"35
+[; ;newmain.c: 35:     TRISCbits.TRISC1 = 0;
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-"37
-[; ;newmain.c: 37:     TRISCbits.TRISC6 = 0;
+"36
+[; ;newmain.c: 36:     TRISCbits.TRISC6 = 0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"38
-[; ;newmain.c: 38:     TRISD = 0;
+"37
+[; ;newmain.c: 37:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"39
-[; ;newmain.c: 39:     TRISE = 0;
+"38
+[; ;newmain.c: 38:     TRISE = 0;
 [e = _TRISE -> -> 0 `i `uc ]
-"41
-[; ;newmain.c: 41:     INTCON = 0b11000000;
+"39
+[; ;newmain.c: 39:     INTCON = 0b11000000;
 [e = _INTCON -> -> 192 `i `uc ]
-"42
-[; ;newmain.c: 42:     SPBRGH = 0;
+"40
+[; ;newmain.c: 40:     PIE1bits.TXIE = 1;
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
+"41
+[; ;newmain.c: 41:     SPBRGH = 0;
 [e = _SPBRGH -> -> 0 `i `uc ]
-"43
-[; ;newmain.c: 43:     SPBRG = 25;
+"42
+[; ;newmain.c: 42:     SPBRG = 25;
 [e = _SPBRG -> -> 25 `i `uc ]
-"44
-[; ;newmain.c: 44:     BAUDCTL = 0;
+"43
+[; ;newmain.c: 43:     BAUDCTL = 0;
 [e = _BAUDCTL -> -> 0 `i `uc ]
-"45
-[; ;newmain.c: 45:     TXSTA = 0b00100100;
+"44
+[; ;newmain.c: 44:     TXSTA = 0b00100100;
 [e = _TXSTA -> -> 36 `i `uc ]
-"46
-[; ;newmain.c: 46:     RCSTA = 0b10000000;
+"45
+[; ;newmain.c: 45:     RCSTA = 0b10000000;
 [e = _RCSTA -> -> 128 `i `uc ]
-"47
-[; ;newmain.c: 47:     PORTC = 0;
+"46
+[; ;newmain.c: 46:     PORTC = 0;
 [e = _PORTC -> -> 0 `i `uc ]
-"48
-[; ;newmain.c: 48:     PORTD = 0;
+"47
+[; ;newmain.c: 47:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"49
-[; ;newmain.c: 49: }
+"48
+[; ;newmain.c: 48: }
 [e :UE 139 ]
 }
-"52
-[; ;newmain.c: 52: uint8_t S1;
+"50
+[; ;newmain.c: 50: uint8_t S1;
 [v _S1 `uc ~T0 @X0 1 e ]
-"53
-[; ;newmain.c: 53: uint8_t S2;
+"51
+[; ;newmain.c: 51: uint8_t S2;
 [v _S2 `uc ~T0 @X0 1 e ]
-"54
-[; ;newmain.c: 54: uint8_t S3;
+"52
+[; ;newmain.c: 52: uint8_t S3;
 [v _S3 `uc ~T0 @X0 1 e ]
-"55
-[; ;newmain.c: 55: uint8_t vasc;
+"53
+[; ;newmain.c: 53: uint8_t vasc;
 [v _vasc `uc ~T0 @X0 1 e ]
-"56
-[; ;newmain.c: 56: uint8_t res1;
+"54
+[; ;newmain.c: 54: uint8_t res1;
 [v _res1 `uc ~T0 @X0 1 e ]
-"57
-[; ;newmain.c: 57: uint8_t res2;
+"55
+[; ;newmain.c: 55: uint8_t res2;
 [v _res2 `uc ~T0 @X0 1 e ]
-"58
-[; ;newmain.c: 58: uint8_t res3;
+"56
+[; ;newmain.c: 56: uint8_t res3;
 [v _res3 `uc ~T0 @X0 1 e ]
-"59
-[; ;newmain.c: 59: uint8_t res4;
+"57
+[; ;newmain.c: 57: uint8_t res4;
 [v _res4 `uc ~T0 @X0 1 e ]
-"60
-[; ;newmain.c: 60: uint8_t bin1;
-[v _bin1 `uc ~T0 @X0 1 e ]
-"61
-[; ;newmain.c: 61: uint8_t bin2;
-[v _bin2 `uc ~T0 @X0 1 e ]
-"62
-[; ;newmain.c: 62: uint8_t bin3;
-[v _bin3 `uc ~T0 @X0 1 e ]
-"63
-[; ;newmain.c: 63: uint8_t bin4;
-[v _bin4 `uc ~T0 @X0 1 e ]
-"64
-[; ;newmain.c: 64: uint8_t bin5;
-[v _bin5 `uc ~T0 @X0 1 e ]
-"65
-[; ;newmain.c: 65: uint8_t bin6;
-[v _bin6 `uc ~T0 @X0 1 e ]
-"66
-[; ;newmain.c: 66: char carac[16];
+"58
+[; ;newmain.c: 58: char carac[16];
 [v _carac `uc ~T0 @X0 -> 16 `i e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"69
-[; ;newmain.c: 69: void __attribute__((picinterrupt(("")))) isr(void) {
+"60
+[; ;newmain.c: 60: void __attribute__((picinterrupt(("")))) isr(void) {
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"71
-[; ;newmain.c: 71:     PIR1bits.SSPIF = 0;
+"61
+[; ;newmain.c: 61:     PIR1bits.SSPIF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"72
-[; ;newmain.c: 72: }
+"62
+[; ;newmain.c: 62:     PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"63
+[; ;newmain.c: 63: }
 [e :UE 140 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"74
-[; ;newmain.c: 74: void main(void) {
+"65
+[; ;newmain.c: 65: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"75
-[; ;newmain.c: 75:     setup();
+"66
+[; ;newmain.c: 66:     setup();
 [e ( _setup ..  ]
-"77
-[; ;newmain.c: 77:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"67
+[; ;newmain.c: 67:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [e ( _spiInit (4 , , , . `E1369 0 . `E1377 0 . `E1381 1 . `E1385 0 ]
-"79
-[; ;newmain.c: 79:     Lcd_Init();
+"68
+[; ;newmain.c: 68:     Lcd_Init();
 [e ( _Lcd_Init ..  ]
-"80
-[; ;newmain.c: 80:     Lcd_Clear();
+"69
+[; ;newmain.c: 69:     Lcd_Clear();
 [e ( _Lcd_Clear ..  ]
-"81
-[; ;newmain.c: 81:     while (1) {
+"70
+[; ;newmain.c: 70:     while (1) {
 [e :U 143 ]
 {
-"83
-[; ;newmain.c: 83:         PORTBbits.RB0 = 0;
+"71
+[; ;newmain.c: 71:         PORTBbits.RB0 = 0;
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"84
-[; ;newmain.c: 84:         spiWrite(0);
+"72
+[; ;newmain.c: 72:         spiWrite(0);
 [e ( _spiWrite (1 -> -> 0 `i `uc ]
-"85
-[; ;newmain.c: 85:         S1 = spiRead();
+"73
+[; ;newmain.c: 73:         S1 = spiRead();
 [e = _S1 -> ( _spiRead ..  `uc ]
-"86
-[; ;newmain.c: 86:         PORTBbits.RB0 = 1;
+"74
+[; ;newmain.c: 74:         PORTBbits.RB0 = 1;
 [e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-"87
-[; ;newmain.c: 87:         PORTBbits.RB1 = 0;
+"75
+[; ;newmain.c: 75:         PORTBbits.RB1 = 0;
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"88
-[; ;newmain.c: 88:         spiWrite(0);
+"76
+[; ;newmain.c: 76:         spiWrite(0);
 [e ( _spiWrite (1 -> -> 0 `i `uc ]
-"89
-[; ;newmain.c: 89:         S2 = spiRead();
+"77
+[; ;newmain.c: 77:         S2 = spiRead();
 [e = _S2 -> ( _spiRead ..  `uc ]
-"90
-[; ;newmain.c: 90:         PORTBbits.RB1 = 1;
+"78
+[; ;newmain.c: 78:         PORTBbits.RB1 = 1;
 [e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
-"91
-[; ;newmain.c: 91:         PORTBbits.RB2 = 0;
+"79
+[; ;newmain.c: 79:         PORTBbits.RB2 = 0;
 [e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
-"92
-[; ;newmain.c: 92:         spiWrite(0);
+"80
+[; ;newmain.c: 80:         spiWrite(0);
 [e ( _spiWrite (1 -> -> 0 `i `uc ]
-"93
-[; ;newmain.c: 93:         S3 = spiRead();
+"81
+[; ;newmain.c: 81:         S3 = spiRead();
 [e = _S3 -> ( _spiRead ..  `uc ]
-"94
-[; ;newmain.c: 94:         PORTBbits.RB2 = 1;
+"82
+[; ;newmain.c: 82:         PORTBbits.RB2 = 1;
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-"98
-[; ;newmain.c: 98:         while (S1 >= 50) {
+"86
+[; ;newmain.c: 86:         while (S1 >= 50) {
 [e $U 145  ]
 [e :U 146 ]
 {
-"99
-[; ;newmain.c: 99:             S1 = S1 - 50;
+"87
+[; ;newmain.c: 87:             S1 = S1 - 50;
 [e = _S1 -> - -> _S1 `i -> 50 `i `uc ]
-"100
-[; ;newmain.c: 100:             res1++;
+"88
+[; ;newmain.c: 88:             res1++;
 [e ++ _res1 -> -> 1 `i `uc ]
-"101
-[; ;newmain.c: 101:         }
+"89
+[; ;newmain.c: 89:         }
 }
 [e :U 145 ]
-"98
-[; ;newmain.c: 98:         while (S1 >= 50) {
+"86
+[; ;newmain.c: 86:         while (S1 >= 50) {
 [e $ >= -> _S1 `i -> 50 `i 146  ]
 [e :U 147 ]
-"102
-[; ;newmain.c: 102:         while (S1 >= 5) {
+"90
+[; ;newmain.c: 90:         while (S1 >= 5) {
 [e $U 148  ]
 [e :U 149 ]
 {
-"103
-[; ;newmain.c: 103:             S1 = S1 - 5;
+"91
+[; ;newmain.c: 91:             S1 = S1 - 5;
 [e = _S1 -> - -> _S1 `i -> 5 `i `uc ]
-"104
-[; ;newmain.c: 104:             res2++;
+"92
+[; ;newmain.c: 92:             res2++;
 [e ++ _res2 -> -> 1 `i `uc ]
-"105
-[; ;newmain.c: 105:         }
+"93
+[; ;newmain.c: 93:         }
 }
 [e :U 148 ]
-"102
-[; ;newmain.c: 102:         while (S1 >= 5) {
+"90
+[; ;newmain.c: 90:         while (S1 >= 5) {
 [e $ >= -> _S1 `i -> 5 `i 149  ]
 [e :U 150 ]
-"109
-[; ;newmain.c: 109:         Lcd_Set_Cursor(1, 1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"110
-[; ;newmain.c: 110:         Lcd_Write_String("POT   BIN   TEMP");
-[e ( _Lcd_Write_String (1 :s 1C ]
-"111
-[; ;newmain.c: 111:         Lcd_Set_Cursor(2, 1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"112
-[; ;newmain.c: 112:         sprintf(carac, "%1i.%1iV  %3i %3i.0C", res1, res2, S2, S3);
-[e ( _sprintf (1 , , , , (. , &U _carac :s 2C -> _res1 `i -> _res2 `i -> _S2 `i -> _S3 `i ]
-"113
-[; ;newmain.c: 113:         Lcd_Write_String(carac);
-[e ( _Lcd_Write_String (1 &U _carac ]
-"117
-[; ;newmain.c: 117:         while (S2 >= 100) {
+"97
+[; ;newmain.c: 97:         while (S3 >= 1) {
 [e $U 151  ]
 [e :U 152 ]
 {
-"118
-[; ;newmain.c: 118:             S2 = S2 - 100;
-[e = _S2 -> - -> _S2 `i -> 100 `i `uc ]
-"119
-[; ;newmain.c: 119:             bin1++;
-[e ++ _bin1 -> -> 1 `i `uc ]
-"120
-[; ;newmain.c: 120:         }
+"98
+[; ;newmain.c: 98:             S3 = S3 - 1;
+[e = _S3 -> - -> _S3 `i -> 1 `i `uc ]
+"99
+[; ;newmain.c: 99:             res3++;
+[e ++ _res3 -> -> 1 `i `uc ]
+"100
+[; ;newmain.c: 100:         }
 }
 [e :U 151 ]
-"117
-[; ;newmain.c: 117:         while (S2 >= 100) {
-[e $ >= -> _S2 `i -> 100 `i 152  ]
+"97
+[; ;newmain.c: 97:         while (S3 >= 1) {
+[e $ >= -> _S3 `i -> 1 `i 152  ]
 [e :U 153 ]
-"121
-[; ;newmain.c: 121:         while (S2 >= 10) {
-[e $U 154  ]
-[e :U 155 ]
+"104
+[; ;newmain.c: 104:         Lcd_Set_Cursor(1, 1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"105
+[; ;newmain.c: 105:         Lcd_Write_String("POT   BIN   TEMP");
+[e ( _Lcd_Write_String (1 :s 1C ]
+"109
+[; ;newmain.c: 109:         if (TXSTAbits.TRMT == 1) {
+[e $ ! == -> . . _TXSTAbits 0 1 `i -> 1 `i 154  ]
 {
-"122
-[; ;newmain.c: 122:             S2 = S2 - 10;
-[e = _S2 -> - -> _S2 `i -> 10 `i `uc ]
-"123
-[; ;newmain.c: 123:             bin2++;
-[e ++ _bin2 -> -> 1 `i `uc ]
-"124
-[; ;newmain.c: 124:         }
+"110
+[; ;newmain.c: 110:             vasc = ascii(res1);
+[e = _vasc ( _ascii (1 _res1 ]
+"111
+[; ;newmain.c: 111:             TXREG = vasc;
+[e = _TXREG _vasc ]
+"112
+[; ;newmain.c: 112:             _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"113
+[; ;newmain.c: 113:         }
 }
 [e :U 154 ]
-"121
-[; ;newmain.c: 121:         while (S2 >= 10) {
-[e $ >= -> _S2 `i -> 10 `i 155  ]
-[e :U 156 ]
-"125
-[; ;newmain.c: 125:         while (S2 >= 1) {
-[e $U 157  ]
-[e :U 158 ]
-{
-"126
-[; ;newmain.c: 126:             S2 = S2 - 1;
-[e = _S2 -> - -> _S2 `i -> 1 `i `uc ]
-"127
-[; ;newmain.c: 127:             bin3++;
-[e ++ _bin3 -> -> 1 `i `uc ]
-"128
-[; ;newmain.c: 128:         }
-}
-[e :U 157 ]
-"125
-[; ;newmain.c: 125:         while (S2 >= 1) {
-[e $ >= -> _S2 `i -> 1 `i 158  ]
-[e :U 159 ]
-"132
-[; ;newmain.c: 132:         while (S3 >= 100) {
-[e $U 160  ]
-[e :U 161 ]
-{
-"133
-[; ;newmain.c: 133:             S3 = S3 - 100;
-[e = _S3 -> - -> _S3 `i -> 100 `i `uc ]
-"134
-[; ;newmain.c: 134:             bin4++;
-[e ++ _bin4 -> -> 1 `i `uc ]
-"135
-[; ;newmain.c: 135:         }
-}
-[e :U 160 ]
-"132
-[; ;newmain.c: 132:         while (S3 >= 100) {
-[e $ >= -> _S3 `i -> 100 `i 161  ]
-[e :U 162 ]
-"136
-[; ;newmain.c: 136:         while (S3 >= 10) {
-[e $U 163  ]
-[e :U 164 ]
-{
-"137
-[; ;newmain.c: 137:             S3 = S3 - 10;
-[e = _S3 -> - -> _S3 `i -> 10 `i `uc ]
-"138
-[; ;newmain.c: 138:             bin5++;
-[e ++ _bin5 -> -> 1 `i `uc ]
-"139
-[; ;newmain.c: 139:         }
-}
-[e :U 163 ]
-"136
-[; ;newmain.c: 136:         while (S3 >= 10) {
-[e $ >= -> _S3 `i -> 10 `i 164  ]
-[e :U 165 ]
-"140
-[; ;newmain.c: 140:         while (S3 >= 1) {
-[e $U 166  ]
-[e :U 167 ]
-{
-"141
-[; ;newmain.c: 141:             S3 = S3 - 1;
-[e = _S3 -> - -> _S3 `i -> 1 `i `uc ]
-"142
-[; ;newmain.c: 142:             bin6++;
-[e ++ _bin6 -> -> 1 `i `uc ]
-"143
-[; ;newmain.c: 143:         }
-}
-[e :U 166 ]
-"140
-[; ;newmain.c: 140:         while (S3 >= 1) {
-[e $ >= -> _S3 `i -> 1 `i 167  ]
-[e :U 168 ]
-"147
-[; ;newmain.c: 147:         if (TXSTAbits.TRMT == 1) {
-[e $ ! == -> . . _TXSTAbits 0 1 `i -> 1 `i 169  ]
-{
-"148
-[; ;newmain.c: 148:             vasc = ascii(res1);
-[e = _vasc ( _ascii (1 _res1 ]
-"149
-[; ;newmain.c: 149:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"150
-[; ;newmain.c: 150:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"151
-[; ;newmain.c: 151:             TXREG = 0x2E;
-[e = _TXREG -> -> 46 `i `uc ]
-"152
-[; ;newmain.c: 152:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"153
-[; ;newmain.c: 153:             vasc = ascii(res2);
-[e = _vasc ( _ascii (1 _res2 ]
-"154
-[; ;newmain.c: 154:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"155
-[; ;newmain.c: 155:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"156
-[; ;newmain.c: 156:             TXREG = 0x56;
-[e = _TXREG -> -> 86 `i `uc ]
-"157
-[; ;newmain.c: 157:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"158
-[; ;newmain.c: 158:             TXREG = 0x20;
-[e = _TXREG -> -> 32 `i `uc ]
-"159
-[; ;newmain.c: 159:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"160
-[; ;newmain.c: 160:             TXREG = 0x20;
-[e = _TXREG -> -> 32 `i `uc ]
-"161
-[; ;newmain.c: 161:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"162
-[; ;newmain.c: 162:             vasc = ascii(bin1);
-[e = _vasc ( _ascii (1 _bin1 ]
-"163
-[; ;newmain.c: 163:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"164
-[; ;newmain.c: 164:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"165
-[; ;newmain.c: 165:             vasc = ascii(bin2);
-[e = _vasc ( _ascii (1 _bin2 ]
-"166
-[; ;newmain.c: 166:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"167
-[; ;newmain.c: 167:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"168
-[; ;newmain.c: 168:             vasc = ascii(bin3);
-[e = _vasc ( _ascii (1 _bin3 ]
-"169
-[; ;newmain.c: 169:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"170
-[; ;newmain.c: 170:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"171
-[; ;newmain.c: 171:             TXREG = 0x20;
-[e = _TXREG -> -> 32 `i `uc ]
-"172
-[; ;newmain.c: 172:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"173
-[; ;newmain.c: 173:             TXREG = 0x20;
-[e = _TXREG -> -> 32 `i `uc ]
-"174
-[; ;newmain.c: 174:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"175
-[; ;newmain.c: 175:             vasc = ascii(bin4);
-[e = _vasc ( _ascii (1 _bin4 ]
-"176
-[; ;newmain.c: 176:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"177
-[; ;newmain.c: 177:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"178
-[; ;newmain.c: 178:             vasc = ascii(bin5);
-[e = _vasc ( _ascii (1 _bin5 ]
-"179
-[; ;newmain.c: 179:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"180
-[; ;newmain.c: 180:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"181
-[; ;newmain.c: 181:             vasc = ascii(bin6);
-[e = _vasc ( _ascii (1 _bin6 ]
-"182
-[; ;newmain.c: 182:             TXREG = vasc;
-[e = _TXREG _vasc ]
-"183
-[; ;newmain.c: 183:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"184
-[; ;newmain.c: 184:             TXREG = 0x0D;
-[e = _TXREG -> -> 13 `i `uc ]
-"185
-[; ;newmain.c: 185:             _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"186
-[; ;newmain.c: 186:         }
-}
-[e :U 169 ]
-"189
-[; ;newmain.c: 189:         res1 = 0;
+"115
+[; ;newmain.c: 115:         Lcd_Set_Cursor(2, 1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"116
+[; ;newmain.c: 116:         sprintf(carac, "%1i.%1iV  %3i %3i.0C", res1, res2, S2, res3);
+[e ( _sprintf (1 , , , , (. , &U _carac :s 2C -> _res1 `i -> _res2 `i -> _S2 `i -> _res3 `i ]
+"117
+[; ;newmain.c: 117:         Lcd_Write_String(carac);
+[e ( _Lcd_Write_String (1 &U _carac ]
+"119
+[; ;newmain.c: 119:         res1 = 0;
 [e = _res1 -> -> 0 `i `uc ]
-"190
-[; ;newmain.c: 190:         res2 = 0;
+"120
+[; ;newmain.c: 120:         res2 = 0;
 [e = _res2 -> -> 0 `i `uc ]
-"191
-[; ;newmain.c: 191:         res3 = 0;
+"121
+[; ;newmain.c: 121:         res3 = 0;
 [e = _res3 -> -> 0 `i `uc ]
-"192
-[; ;newmain.c: 192:         bin1 = 0;
-[e = _bin1 -> -> 0 `i `uc ]
-"193
-[; ;newmain.c: 193:         bin2 = 0;
-[e = _bin2 -> -> 0 `i `uc ]
-"194
-[; ;newmain.c: 194:         bin3 = 0;
-[e = _bin3 -> -> 0 `i `uc ]
-"195
-[; ;newmain.c: 195:         bin4 = 0;
-[e = _bin4 -> -> 0 `i `uc ]
-"196
-[; ;newmain.c: 196:         bin5 = 0;
-[e = _bin5 -> -> 0 `i `uc ]
-"197
-[; ;newmain.c: 197:         bin6 = 0;
-[e = _bin6 -> -> 0 `i `uc ]
-"199
-[; ;newmain.c: 199:     }
+"123
+[; ;newmain.c: 123:     }
 }
 [e :U 142 ]
 [e $U 143  ]
 [e :U 144 ]
-"200
-[; ;newmain.c: 200: }
+"124
+[; ;newmain.c: 124: }
 [e :UE 141 ]
 }
 [p f _sprintf 8421504 ]

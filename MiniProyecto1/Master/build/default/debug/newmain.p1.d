@@ -1,4 +1,4 @@
-build/default/production/newmain.p1:  \
+build/default/debug/newmain.p1:  \
 newmain.c  \
 LCD.h  \
 Lib1.h  \

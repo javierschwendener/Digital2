@@ -2813,7 +2813,6 @@ char spiRead();
 
 
 void setup(void) {
-
     PORTA = 0;
     PORTB = 0b00000111;
     PORTC = 0;
@@ -2828,8 +2827,8 @@ void setup(void) {
     TRISCbits.TRISC6 = 0;
     TRISD = 0;
     TRISE = 0;
-
     INTCON = 0b11000000;
+    PIE1bits.TXIE = 1;
     SPBRGH = 0;
     SPBRG = 25;
     BAUDCTL = 0;
@@ -2839,7 +2838,6 @@ void setup(void) {
     PORTD = 0;
 }
 
-
 uint8_t S1;
 uint8_t S2;
 uint8_t S3;
@@ -2848,29 +2846,19 @@ uint8_t res1;
 uint8_t res2;
 uint8_t res3;
 uint8_t res4;
-uint8_t bin1;
-uint8_t bin2;
-uint8_t bin3;
-uint8_t bin4;
-uint8_t bin5;
-uint8_t bin6;
 char carac[16];
 
-
 void __attribute__((picinterrupt(("")))) isr(void) {
-
     PIR1bits.SSPIF = 0;
+    PIR1bits.RCIF = 0;
 }
 
 void main(void) {
     setup();
-
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-
     Lcd_Init();
     Lcd_Clear();
     while (1) {
-
         PORTBbits.RB0 = 0;
         spiWrite(0);
         S1 = spiRead();
@@ -2897,41 +2885,15 @@ void main(void) {
 
 
 
-        Lcd_Set_Cursor(1, 1);
-        Lcd_Write_String("POT   BIN   TEMP");
-        Lcd_Set_Cursor(2, 1);
-        sprintf(carac, "%1i.%1iV  %3i %3i.0C", res1, res2, S2, S3);
-        Lcd_Write_String(carac);
-
-
-
-        while (S2 >= 100) {
-            S2 = S2 - 100;
-            bin1++;
-        }
-        while (S2 >= 10) {
-            S2 = S2 - 10;
-            bin2++;
-        }
-        while (S2 >= 1) {
-            S2 = S2 - 1;
-            bin3++;
-        }
-
-
-
-        while (S3 >= 100) {
-            S3 = S3 - 100;
-            bin4++;
-        }
-        while (S3 >= 10) {
-            S3 = S3 - 10;
-            bin5++;
-        }
         while (S3 >= 1) {
             S3 = S3 - 1;
-            bin6++;
+            res3++;
         }
+
+
+
+        Lcd_Set_Cursor(1, 1);
+        Lcd_Write_String("POT   BIN   TEMP");
 
 
 
@@ -2939,53 +2901,15 @@ void main(void) {
             vasc = ascii(res1);
             TXREG = vasc;
             _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x2E;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(res2);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x56;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin1);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin2);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin3);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin4);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin5);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin6);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x0D;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
         }
 
+        Lcd_Set_Cursor(2, 1);
+        sprintf(carac, "%1i.%1iV  %3i %3i.0C", res1, res2, S2, res3);
+        Lcd_Write_String(carac);
 
         res1 = 0;
         res2 = 0;
         res3 = 0;
-        bin1 = 0;
-        bin2 = 0;
-        bin3 = 0;
-        bin4 = 0;
-        bin5 = 0;
-        bin6 = 0;
 
     }
 }

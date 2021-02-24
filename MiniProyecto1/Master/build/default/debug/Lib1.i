@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "Lib1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,19 +6,11 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
+# 1 "Lib1.c" 2
+
+
+
+
 
 
 
@@ -2645,123 +2637,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.h" 2 3
-# 16 "newmain.c" 2
+# 9 "Lib1.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 17 "newmain.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\__null.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
-
-
-
-
-
-
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-# 43 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-struct __prbuf
-{
- char * ptr;
- void (* func)(char);
-};
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 1 3
-# 29 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 3
-extern int errno;
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 2 3
-
-
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-
-
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-# 180 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-# 18 "newmain.c" 2
-
-
-# 1 "./LCD.h" 1
-# 12 "./LCD.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear();
-void Lcd_Set_Cursor(char a, char b);
-void Lcd_Init();
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right();
-void Lcd_Shift_Left();
-# 20 "newmain.c" 2
+# 10 "Lib1.c" 2
 
 # 1 "./Lib1.h" 1
 # 15 "./Lib1.h"
@@ -2772,220 +2651,103 @@ void Lcd_Shift_Left();
 uint8_t table(uint8_t index);
 uint8_t adc(void);
 uint8_t ascii(uint8_t index);
-# 21 "newmain.c" 2
-
-# 1 "./spi.h" 1
-# 15 "./spi.h"
-typedef enum
-{
-    SPI_MASTER_OSC_DIV4 = 0b00100000,
-    SPI_MASTER_OSC_DIV16 = 0b00100001,
-    SPI_MASTER_OSC_DIV64 = 0b00100010,
-    SPI_MASTER_TMR2 = 0b00100011,
-    SPI_SLAVE_SS_EN = 0b00100100,
-    SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
-
-typedef enum
-{
-    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-    SPI_DATA_SAMPLE_END = 0b10000000
-}Spi_Data_Sample;
-
-typedef enum
-{
-    SPI_CLOCK_IDLE_HIGH = 0b00010000,
-    SPI_CLOCK_IDLE_LOW = 0b00000000
-}Spi_Clock_Idle;
-
-typedef enum
-{
-    SPI_IDLE_2_ACTIVE = 0b00000000,
-    SPI_ACTIVE_2_IDLE = 0b01000000
-}Spi_Transmit_Edge;
+# 11 "Lib1.c" 2
 
 
-void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-void spiWrite(char);
-unsigned spiDataReady();
-char spiRead();
-# 22 "newmain.c" 2
+uint8_t value;
+uint8_t adc_value;
 
-
-void setup(void) {
-
-    PORTA = 0;
-    PORTB = 0b00000111;
-    PORTC = 0;
-    PORTD = 0;
-    PORTE = 0;
-    ANSEL = 0;
-    ANSELH = 0;
-    TRISA = 0;
-    TRISB = 0;
-    TRISCbits.TRISC0 = 0;
-    TRISCbits.TRISC1 = 0;
-    TRISCbits.TRISC6 = 0;
-    TRISD = 0;
-    TRISE = 0;
-
-    INTCON = 0b11000000;
-    SPBRGH = 0;
-    SPBRG = 25;
-    BAUDCTL = 0;
-    TXSTA = 0b00100100;
-    RCSTA = 0b10000000;
-    PORTC = 0;
-    PORTD = 0;
+uint8_t table(uint8_t index) {
+    switch (index) {
+        case 0:
+            value = 0b00111111;
+            break;
+        case 1:
+            value = 0b00000110;
+            break;
+        case 2:
+            value = 0b01011011;
+            break;
+        case 3:
+            value = 0b01001111;
+            break;
+        case 4:
+            value = 0b01100110;
+            break;
+        case 5:
+            value = 0b01101101;
+            break;
+        case 6:
+            value = 0b01111101;
+            break;
+        case 7:
+            value = 0b00000111;
+            break;
+        case 8:
+            value = 0b01111111;
+            break;
+        case 9:
+            value = 0b01100111;
+            break;
+        case 10:
+            value = 0b01110111;
+            break;
+        case 11:
+            value = 0b01111111;
+            break;
+        case 12:
+            value = 0b00111001;
+            break;
+        case 13:
+            value = 0b00111111;
+            break;
+        case 14:
+            value = 0b01111001;
+            break;
+        case 15:
+            value = 0b01110001;
+            break;
+    }
 }
 
-
-uint8_t S1;
-uint8_t S2;
-uint8_t S3;
-uint8_t vasc;
-uint8_t res1;
-uint8_t res2;
-uint8_t res3;
-uint8_t res4;
-uint8_t bin1;
-uint8_t bin2;
-uint8_t bin3;
-uint8_t bin4;
-uint8_t bin5;
-uint8_t bin6;
-char carac[16];
-
-
-void __attribute__((picinterrupt(("")))) isr(void) {
-
-    PIR1bits.SSPIF = 0;
+uint8_t adc(void) {
+    if (PIR1bits.ADIF == 1) {
+        adc_value = ADRESH;
+        PIR1bits.ADIF = 0;
+    }
 }
 
-void main(void) {
-    setup();
-
-    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-
-    Lcd_Init();
-    Lcd_Clear();
-    while (1) {
-
-        PORTBbits.RB0 = 0;
-        spiWrite(0);
-        S1 = spiRead();
-        PORTBbits.RB0 = 1;
-        PORTBbits.RB1 = 0;
-        spiWrite(0);
-        S2 = spiRead();
-        PORTBbits.RB1 = 1;
-        PORTBbits.RB2 = 0;
-        spiWrite(0);
-        S3 = spiRead();
-        PORTBbits.RB2 = 1;
-
-
-
-        while (S1 >= 50) {
-            S1 = S1 - 50;
-            res1++;
-        }
-        while (S1 >= 5) {
-            S1 = S1 - 5;
-            res2++;
-        }
-
-
-
-        Lcd_Set_Cursor(1, 1);
-        Lcd_Write_String("POT   BIN   TEMP");
-        Lcd_Set_Cursor(2, 1);
-        sprintf(carac, "%1i.%1iV  %3i %3i.0C", res1, res2, S2, S3);
-        Lcd_Write_String(carac);
-
-
-
-        while (S2 >= 100) {
-            S2 = S2 - 100;
-            bin1++;
-        }
-        while (S2 >= 10) {
-            S2 = S2 - 10;
-            bin2++;
-        }
-        while (S2 >= 1) {
-            S2 = S2 - 1;
-            bin3++;
-        }
-
-
-
-        while (S3 >= 100) {
-            S3 = S3 - 100;
-            bin4++;
-        }
-        while (S3 >= 10) {
-            S3 = S3 - 10;
-            bin5++;
-        }
-        while (S3 >= 1) {
-            S3 = S3 - 1;
-            bin6++;
-        }
-
-
-
-        if (TXSTAbits.TRMT == 1) {
-            vasc = ascii(res1);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x2E;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(res2);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x56;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin1);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin2);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin3);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x20;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin4);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin5);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            vasc = ascii(bin6);
-            TXREG = vasc;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-            TXREG = 0x0D;
-            _delay((unsigned long)((5)*(4000000/4000.0)));
-        }
-
-
-        res1 = 0;
-        res2 = 0;
-        res3 = 0;
-        bin1 = 0;
-        bin2 = 0;
-        bin3 = 0;
-        bin4 = 0;
-        bin5 = 0;
-        bin6 = 0;
-
+uint8_t ascii(uint8_t index) {
+    switch (index) {
+        case 0:
+            value = 0x30;
+            break;
+        case 1:
+            value = 0x31;
+            break;
+        case 2:
+            value = 0x32;
+            break;
+        case 3:
+            value = 0x33;
+            break;
+        case 4:
+            value = 0x34;
+            break;
+        case 5:
+            value = 0x35;
+            break;
+        case 6:
+            value = 0x36;
+            break;
+        case 7:
+            value = 0x37;
+            break;
+        case 8:
+            value = 0x38;
+            break;
+        case 9:
+            value = 0x39;
+            break;
     }
 }
