@@ -6,9 +6,9 @@
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="68" flags="00000002" y="129" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="10" flags="00000002" y="29" h="200" pid="0" iid="-1">
     <PROPERTIES>
-     <ITEM name="Message Column Width">663</ITEM>
+     <ITEM name="Message Column Width">542</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
      <ITEM name="Time Column Width">120</ITEM>
@@ -32,9 +32,9 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="108" flags="00000022" y="169" h="250" pid="0" iid="34">
+   <POPUP w="450" x="914" flags="00008023" y="371" h="250" pid="0" iid="34">
     <PROPERTIES>
-     <ITEM name="AutoEcho">0</ITEM>
+     <ITEM name="AutoEcho">1</ITEM>
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
@@ -213,6 +213,90 @@
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="588" flags="00000002" y="649" h="8" pid="8" iid="3">
+    <PROPERTIES>
+     <ITEM name="DataType">2</ITEM>
+     <ITEM name="DispChars">Yes</ITEM>
+     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="ShowChanges">Yes</ITEM>
+     <ITEM name="ShowToolTips">Yes</ITEM>
+     <ITEM name="TopLineAddress">00000000</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="450" x="817" flags="00000022" y="185" h="250" pid="0" iid="40">
+    <PROPERTIES>
+     <ITEM name="ComboBox1000">0</ITEM>
+     <ITEM name="ComboBox1001">9</ITEM>
+     <ITEM name="ComboBox1002">255</ITEM>
+     <ITEM name="ComboBox1003">10</ITEM>
+     <ITEM name="ComboBox1004">2</ITEM>
+     <ITEM name="ComboBox1005">1</ITEM>
+     <ITEM name="ComboBox1006">8</ITEM>
+     <ITEM name="ComboBox1007">5</ITEM>
+     <ITEM name="ComboBox1008">6</ITEM>
+     <ITEM name="ComboBox1009">7</ITEM>
+     <ITEM name="HSplitter1Pos">101</ITEM>
+     <ITEM name="VSplitter1Pos">238</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="450" x="450" flags="00000022" y="117" h="250" pid="0" iid="39">
+    <PROPERTIES>
+     <ITEM name="ComboBox1000">3</ITEM>
+     <ITEM name="ComboBox1001">255</ITEM>
+     <ITEM name="ComboBox1002">90</ITEM>
+     <ITEM name="ComboBox1003">0</ITEM>
+     <ITEM name="ComboBox1004">8</ITEM>
+     <ITEM name="ComboBox1005">5</ITEM>
+     <ITEM name="ComboBox1006">1</ITEM>
+     <ITEM name="ComboBox1007">1</ITEM>
+     <ITEM name="ComboBox1008">1</ITEM>
+     <ITEM name="ComboBox1009">1</ITEM>
+     <ITEM name="HSplitter1Pos">100</ITEM>
+     <ITEM name="VSplitter1Pos">238</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="450" x="68" flags="00000022" y="129" h="250" pid="0" iid="41">
+    <PROPERTIES>
+     <ITEM name="HSplitter1Pos">100</ITEM>
+     <ITEM name="VSplitter1Pos">238</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="380" x="88" flags="00000008" y="149" h="182" pid="3" iid="42">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="8" x="108" flags="0000000a" y="169" h="32" pid="4" iid="42">
+    <PROPERTIES>
+     <ITEM name="DataType">2</ITEM>
+     <ITEM name="DispChars">Yes</ITEM>
+     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="ShowChanges">Yes</ITEM>
+     <ITEM name="ShowToolTips">Yes</ITEM>
+     <ITEM name="TopLineAddress">00000000</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="8" x="128" flags="0000000a" y="189" h="32" pid="5" iid="42">
+    <PROPERTIES>
+     <ITEM name="DataType">2</ITEM>
+     <ITEM name="DispChars">Yes</ITEM>
+     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="ShowChanges">Yes</ITEM>
+     <ITEM name="ShowToolTips">Yes</ITEM>
+     <ITEM name="TopLineAddress">00000000</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="16" x="148" flags="0000000a" y="209" h="32" pid="6" iid="42">
+    <PROPERTIES>
+     <ITEM name="DataType">2</ITEM>
+     <ITEM name="DispChars">Yes</ITEM>
+     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="ShowChanges">Yes</ITEM>
+     <ITEM name="ShowToolTips">Yes</ITEM>
+     <ITEM name="TopLineAddress">00000000</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="114" x="168" flags="00000008" y="229" h="127" pid="7" iid="42">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="8" x="188" flags="00000000" y="249" h="8" pid="8" iid="42">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
