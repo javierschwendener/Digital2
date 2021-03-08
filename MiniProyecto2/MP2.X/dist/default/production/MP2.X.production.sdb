@@ -1,0 +1,173 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"41 C:\Users\USUARIO\MPLABXProjects\MP2.X\i2c.c
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+"52
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+"61
+[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
+"65
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+"75
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+"80
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
+"85
+[v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
+"20 C:\Users\USUARIO\MPLABXProjects\MP2.X\main.c
+[v _setup setup `(v  1 e 1 0 ]
+"42
+[v _main main `(v  1 e 1 0 ]
+"167 C:\Program Files\Microchip\xc8\v2.31\pic\include\proc\pic16f887.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"229
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"291
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"353
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"415
+[v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"844
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"851
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1039
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1134
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1417
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1479
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1541
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1603
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1665
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"1980
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
+"2049
+[v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
+"2178
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+"2557
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2643
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2705
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
+"3336
+[v _BAUDCTL BAUDCTL `VEuc  1 e 1 @391 ]
+"3388
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3450
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"3564
+[v _ACKDT ACKDT `VEb  1 e 0 @1165 ]
+"3567
+[v _ACKEN ACKEN `VEb  1 e 0 @1164 ]
+"3570
+[v _ACKSTAT ACKSTAT `VEb  1 e 0 @1166 ]
+"3696
+[v _BRGH BRGH `VEb  1 e 0 @1218 ]
+"3837
+[v _CREN CREN `VEb  1 e 0 @196 ]
+"4044
+[v _PEN PEN `VEb  1 e 0 @1162 ]
+"4167
+[v _RCEN RCEN `VEb  1 e 0 @1163 ]
+"4227
+[v _RSEN RSEN `VEb  1 e 0 @1161 ]
+"4251
+[v _SEN SEN `VEb  1 e 0 @1160 ]
+"4260
+[v _SPEN SPEN `VEb  1 e 0 @199 ]
+"4314
+[v _SYNC SYNC `VEb  1 e 0 @1220 ]
+"4458
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"4461
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"4467
+[v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
+"4470
+[v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
+"4509
+[v _TRMT TRMT `VEb  1 e 0 @1217 ]
+"4539
+[v _TXEN TXEN `VEb  1 e 0 @1221 ]
+"42 C:\Users\USUARIO\MPLABXProjects\MP2.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"58
+} 0
+"20
+[v _setup setup `(v  1 e 1 0 ]
+{
+"38
+} 0
+"80 C:\Users\USUARIO\MPLABXProjects\MP2.X\i2c.c
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
+{
+[v I2C_Master_Write@d d `ui  1 p 2 0 ]
+"83
+} 0
+"75
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+{
+"78
+} 0
+"65
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+{
+"68
+} 0
+"85
+[v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
+{
+"86
+[v I2C_Master_Read@temp temp `us  1 a 2 4 ]
+"85
+[v I2C_Master_Read@a a `us  1 p 2 0 ]
+"95
+} 0
+"61
+[v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
+{
+"63
+} 0
+"52
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+{
+[v I2C_Master_Init@c c `DCul  1 p 4 0 ]
+"59
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"5
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"30
+} 0
