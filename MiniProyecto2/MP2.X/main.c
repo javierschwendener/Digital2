@@ -30,14 +30,25 @@ void setup(void) {
     TRISE = 0;
     ANSEL = 0;
     ANSELH = 0;
+    INTCON = 0b11000000;
+    PIE1 = 0b00100000;
     SPBRGH = 0;
     SPBRG = 25;
     BAUDCTL = 0;
     TXSTA = 0b00100100;
-    RCSTA = 0b10000000;
+    RCSTA = 0b10010000;
 }
 
 //Se crean las variables a utilizar en el programa
+uint8_t uread;
+uint8_t iread;
+
+void __interrupt() isr(void) {
+    if (PIR1bits.RCIF == 1) {
+        uread = RCREG;
+        PIR1bits.RCIF = 0;
+    }
+}
 
 void main(void) {
     setup();
@@ -47,12 +58,19 @@ void main(void) {
         I2C_Master_Write(0x29);
         I2C_Master_Wait();
         if (ACKSTAT == 0){
-            PORTB = I2C_Master_Read(0);
+            iread = I2C_Master_Read(0);
             I2C_Master_Stop();
         }
         else{
             I2C_Master_Stop();
         }
         __delay_ms(200);
+        
+        
+        
+        if (TXSTAbits.TRMT == 1){
+            TXREG = 43;
+            __delay_ms(5);
+        }
     }
 }
