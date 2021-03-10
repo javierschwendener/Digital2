@@ -54,6 +54,7 @@ void main(void) {
     setup();
     I2C_Master_Init(100000);
     while (1) {
+        
         I2C_Master_Start();
         I2C_Master_Write(0x29);
         I2C_Master_Wait();
@@ -66,10 +67,31 @@ void main(void) {
         }
         __delay_ms(200);
         
-        
+        switch (uread){
+            case 0:
+                //Ninguna LED Piloto
+                PORTB = 0;
+                break;
+            case 1:
+                //Primera LED Piloto encendida
+                PORTB = 1;
+                break;
+            case 2:
+                //Segunda LED Piloto encendida
+                PORTB = 2;
+                break;
+            case 3:
+                //Ambas LEDs Piloto encendidas
+                PORTB = 3;
+                break;
+            default:
+                //Ninguna LED Piloto encendida
+                PORTB = 0;
+                break;
+        }
         
         if (TXSTAbits.TRMT == 1){
-            TXREG = 43;
+            TXREG = 44;
             __delay_ms(5);
         }
     }

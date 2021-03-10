@@ -2715,10 +2715,31 @@ void main(void) {
         }
         _delay((unsigned long)((200)*(4000000/4000.0)));
 
+        switch (uread){
+            case 0:
 
+                PORTB = 0;
+                break;
+            case 1:
+
+                PORTB = 1;
+                break;
+            case 2:
+
+                PORTB = 2;
+                break;
+            case 3:
+
+                PORTB = 3;
+                break;
+            default:
+
+                PORTB = 0;
+                break;
+        }
 
         if (TXSTAbits.TRMT == 1){
-            TXREG = 43;
+            TXREG = 44;
             _delay((unsigned long)((5)*(4000000/4000.0)));
         }
     }
