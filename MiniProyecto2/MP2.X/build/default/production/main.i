@@ -2667,6 +2667,7 @@ unsigned short I2C_Master_Read(unsigned short a);
 
 
 void setup(void) {
+
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
@@ -2679,11 +2680,14 @@ void setup(void) {
     TRISE = 0;
     ANSEL = 0;
     ANSELH = 0;
+
     INTCON = 0b11000000;
     PIE1 = 0b00100000;
+
     SPBRGH = 0;
     SPBRG = 25;
     BAUDCTL = 0;
+
     TXSTA = 0b00100100;
     RCSTA = 0b10010000;
 }
@@ -2692,7 +2696,9 @@ void setup(void) {
 uint8_t uread;
 uint8_t iread;
 
+
 void __attribute__((picinterrupt(("")))) isr(void) {
+
     if (PIR1bits.RCIF == 1) {
         uread = RCREG;
         PIR1bits.RCIF = 0;
@@ -2701,11 +2707,14 @@ void __attribute__((picinterrupt(("")))) isr(void) {
 
 void main(void) {
     setup();
+
     I2C_Master_Init(100000);
     while (1) {
         I2C_Master_Start();
-        I2C_Master_Write(0x29);
+
+        I2C_Master_Write(0x09);
         I2C_Master_Wait();
+
         if (ACKSTAT == 0){
             iread = I2C_Master_Read(0);
             I2C_Master_Stop();
@@ -2739,7 +2748,7 @@ void main(void) {
         }
 
         if (TXSTAbits.TRMT == 1){
-            TXREG = 44;
+            TXREG = iread;
             _delay((unsigned long)((5)*(4000000/4000.0)));
         }
     }

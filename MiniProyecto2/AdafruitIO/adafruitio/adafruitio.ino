@@ -42,13 +42,12 @@ int state = 0;
 int s1 = 0;
 int s2 = 0;
 
-// set up the 'enter' feed
+// set up the feeds
 AdafruitIO_Feed *enter = io.feed("enter");
 AdafruitIO_Feed *adafruitp1 = io.feed("adafruitp1");
 AdafruitIO_Feed *adafruitp2 = io.feed("adafruitp2");
 
 void setup() {
-  state = s1 + s2;
   // start the serial connection
   Serial.begin(115200);
   // start the second serial connection
@@ -63,9 +62,6 @@ void setup() {
   io.connect();
 
   // set up a message handler for the count feed.
-  // the handleMessage function (defined below)
-  // will be called whenever a message is
-  // received from adafruit io.
   enter->onMessage(handleData);
   adafruitp1->onMessage(handleP1);
   adafruitp2->onMessage(handleP2);
@@ -92,8 +88,9 @@ void loop() {
   // io.adafruit.com, and processes any incoming enter.
   io.run();
 
+  state = s1 + s2;
+
   if (millis() > (lastUpdate + IO_LOOP_DELAY)) {
-    state = s1 + s2;
 
     // save count to the 'enter' feed on Adafruit IO
     Serial.print("sending -> ");

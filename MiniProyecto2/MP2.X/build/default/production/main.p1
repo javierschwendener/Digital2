@@ -386,203 +386,203 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _setup ]
 [f ]
-"21
-[; ;main.c: 21:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
 "22
-[; ;main.c: 22:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main.c: 22:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "23
-[; ;main.c: 23:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 23:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "24
-[; ;main.c: 24:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;main.c: 24:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
 "25
-[; ;main.c: 25:     PORTE = 0;
-[e = _PORTE -> -> 0 `i `uc ]
+[; ;main.c: 25:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "26
-[; ;main.c: 26:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 26:     PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
 "27
-[; ;main.c: 27:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;main.c: 27:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "28
-[; ;main.c: 28:     TRISC = 0b00011000;
-[e = _TRISC -> -> 24 `i `uc ]
+[; ;main.c: 28:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "29
-[; ;main.c: 29:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 29:     TRISC = 0b00011000;
+[e = _TRISC -> -> 24 `i `uc ]
 "30
-[; ;main.c: 30:     TRISE = 0;
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;main.c: 30:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "31
-[; ;main.c: 31:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main.c: 31:     TRISE = 0;
+[e = _TRISE -> -> 0 `i `uc ]
 "32
-[; ;main.c: 32:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
+[; ;main.c: 32:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "33
-[; ;main.c: 33:     INTCON = 0b11000000;
-[e = _INTCON -> -> 192 `i `uc ]
-"34
-[; ;main.c: 34:     PIE1 = 0b00100000;
-[e = _PIE1 -> -> 32 `i `uc ]
+[; ;main.c: 33:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "35
-[; ;main.c: 35:     SPBRGH = 0;
-[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;main.c: 35:     INTCON = 0b11000000;
+[e = _INTCON -> -> 192 `i `uc ]
 "36
-[; ;main.c: 36:     SPBRG = 25;
-[e = _SPBRG -> -> 25 `i `uc ]
-"37
-[; ;main.c: 37:     BAUDCTL = 0;
-[e = _BAUDCTL -> -> 0 `i `uc ]
+[; ;main.c: 36:     PIE1 = 0b00100000;
+[e = _PIE1 -> -> 32 `i `uc ]
 "38
-[; ;main.c: 38:     TXSTA = 0b00100100;
-[e = _TXSTA -> -> 36 `i `uc ]
+[; ;main.c: 38:     SPBRGH = 0;
+[e = _SPBRGH -> -> 0 `i `uc ]
 "39
-[; ;main.c: 39:     RCSTA = 0b10010000;
-[e = _RCSTA -> -> 144 `i `uc ]
+[; ;main.c: 39:     SPBRG = 25;
+[e = _SPBRG -> -> 25 `i `uc ]
 "40
-[; ;main.c: 40: }
+[; ;main.c: 40:     BAUDCTL = 0;
+[e = _BAUDCTL -> -> 0 `i `uc ]
+"42
+[; ;main.c: 42:     TXSTA = 0b00100100;
+[e = _TXSTA -> -> 36 `i `uc ]
+"43
+[; ;main.c: 43:     RCSTA = 0b10010000;
+[e = _RCSTA -> -> 144 `i `uc ]
+"44
+[; ;main.c: 44: }
 [e :UE 138 ]
 }
-"43
-[; ;main.c: 43: uint8_t uread;
+"47
+[; ;main.c: 47: uint8_t uread;
 [v _uread `uc ~T0 @X0 1 e ]
-"44
-[; ;main.c: 44: uint8_t iread;
+"48
+[; ;main.c: 48: uint8_t iread;
 [v _iread `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"46
-[; ;main.c: 46: void __attribute__((picinterrupt(("")))) isr(void) {
+"51
+[; ;main.c: 51: void __attribute__((picinterrupt(("")))) isr(void) {
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"47
-[; ;main.c: 47:     if (PIR1bits.RCIF == 1) {
+"53
+[; ;main.c: 53:     if (PIR1bits.RCIF == 1) {
 [e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 140  ]
 {
-"48
-[; ;main.c: 48:         uread = RCREG;
+"54
+[; ;main.c: 54:         uread = RCREG;
 [e = _uread _RCREG ]
-"49
-[; ;main.c: 49:         PIR1bits.RCIF = 0;
+"55
+[; ;main.c: 55:         PIR1bits.RCIF = 0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"50
-[; ;main.c: 50:     }
+"56
+[; ;main.c: 56:     }
 }
 [e :U 140 ]
-"51
-[; ;main.c: 51: }
+"57
+[; ;main.c: 57: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"53
-[; ;main.c: 53: void main(void) {
+"59
+[; ;main.c: 59: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"54
-[; ;main.c: 54:     setup();
+"60
+[; ;main.c: 60:     setup();
 [e ( _setup ..  ]
-"55
-[; ;main.c: 55:     I2C_Master_Init(100000);
+"62
+[; ;main.c: 62:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"56
-[; ;main.c: 56:     while (1) {
+"63
+[; ;main.c: 63:     while (1) {
 [e :U 143 ]
 {
-"57
-[; ;main.c: 57:         I2C_Master_Start();
+"64
+[; ;main.c: 64:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"58
-[; ;main.c: 58:         I2C_Master_Write(0x29);
-[e ( _I2C_Master_Write (1 -> -> 41 `i `ui ]
-"59
-[; ;main.c: 59:         I2C_Master_Wait();
+"66
+[; ;main.c: 66:         I2C_Master_Write(0x09);
+[e ( _I2C_Master_Write (1 -> -> 9 `i `ui ]
+"67
+[; ;main.c: 67:         I2C_Master_Wait();
 [e ( _I2C_Master_Wait ..  ]
-"60
-[; ;main.c: 60:         if (ACKSTAT == 0){
+"69
+[; ;main.c: 69:         if (ACKSTAT == 0){
 [e $ ! == -> _ACKSTAT `i -> 0 `i 145  ]
 {
-"61
-[; ;main.c: 61:             iread = I2C_Master_Read(0);
+"70
+[; ;main.c: 70:             iread = I2C_Master_Read(0);
 [e = _iread -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"62
-[; ;main.c: 62:             I2C_Master_Stop();
+"71
+[; ;main.c: 71:             I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"63
-[; ;main.c: 63:         }
+"72
+[; ;main.c: 72:         }
 }
 [e $U 146  ]
-"64
-[; ;main.c: 64:         else{
+"73
+[; ;main.c: 73:         else{
 [e :U 145 ]
 {
-"65
-[; ;main.c: 65:             I2C_Master_Stop();
+"74
+[; ;main.c: 74:             I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"66
-[; ;main.c: 66:         }
+"75
+[; ;main.c: 75:         }
 }
 [e :U 146 ]
-"67
-[; ;main.c: 67:         _delay((unsigned long)((200)*(4000000/4000.0)));
+"76
+[; ;main.c: 76:         _delay((unsigned long)((200)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"69
-[; ;main.c: 69:         switch (uread){
+"78
+[; ;main.c: 78:         switch (uread){
 [e $U 148  ]
 {
-"70
-[; ;main.c: 70:             case 0:
+"79
+[; ;main.c: 79:             case 0:
 [e :U 149 ]
-"72
-[; ;main.c: 72:                 PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:                 break;
-[e $U 147  ]
-"74
-[; ;main.c: 74:             case 1:
-[e :U 150 ]
-"76
-[; ;main.c: 76:                 PORTB = 1;
-[e = _PORTB -> -> 1 `i `uc ]
-"77
-[; ;main.c: 77:                 break;
-[e $U 147  ]
-"78
-[; ;main.c: 78:             case 2:
-[e :U 151 ]
-"80
-[; ;main.c: 80:                 PORTB = 2;
-[e = _PORTB -> -> 2 `i `uc ]
 "81
-[; ;main.c: 81:                 break;
-[e $U 147  ]
-"82
-[; ;main.c: 82:             case 3:
-[e :U 152 ]
-"84
-[; ;main.c: 84:                 PORTB = 3;
-[e = _PORTB -> -> 3 `i `uc ]
-"85
-[; ;main.c: 85:                 break;
-[e $U 147  ]
-"86
-[; ;main.c: 86:             default:
-[e :U 153 ]
-"88
-[; ;main.c: 88:                 PORTB = 0;
+[; ;main.c: 81:                 PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"89
-[; ;main.c: 89:                 break;
+"82
+[; ;main.c: 82:                 break;
 [e $U 147  ]
+"83
+[; ;main.c: 83:             case 1:
+[e :U 150 ]
+"85
+[; ;main.c: 85:                 PORTB = 1;
+[e = _PORTB -> -> 1 `i `uc ]
+"86
+[; ;main.c: 86:                 break;
+[e $U 147  ]
+"87
+[; ;main.c: 87:             case 2:
+[e :U 151 ]
+"89
+[; ;main.c: 89:                 PORTB = 2;
+[e = _PORTB -> -> 2 `i `uc ]
 "90
-[; ;main.c: 90:         }
+[; ;main.c: 90:                 break;
+[e $U 147  ]
+"91
+[; ;main.c: 91:             case 3:
+[e :U 152 ]
+"93
+[; ;main.c: 93:                 PORTB = 3;
+[e = _PORTB -> -> 3 `i `uc ]
+"94
+[; ;main.c: 94:                 break;
+[e $U 147  ]
+"95
+[; ;main.c: 95:             default:
+[e :U 153 ]
+"97
+[; ;main.c: 97:                 PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
+"98
+[; ;main.c: 98:                 break;
+[e $U 147  ]
+"99
+[; ;main.c: 99:         }
 }
 [e $U 147  ]
 [e :U 148 ]
@@ -592,27 +592,27 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 152
  153 ]
 [e :U 147 ]
-"92
-[; ;main.c: 92:         if (TXSTAbits.TRMT == 1){
+"101
+[; ;main.c: 101:         if (TXSTAbits.TRMT == 1){
 [e $ ! == -> . . _TXSTAbits 0 1 `i -> 1 `i 154  ]
 {
-"93
-[; ;main.c: 93:             TXREG = 44;
-[e = _TXREG -> -> 44 `i `uc ]
-"94
-[; ;main.c: 94:             _delay((unsigned long)((5)*(4000000/4000.0)));
+"102
+[; ;main.c: 102:             TXREG = iread;
+[e = _TXREG _iread ]
+"103
+[; ;main.c: 103:             _delay((unsigned long)((5)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"95
-[; ;main.c: 95:         }
+"104
+[; ;main.c: 104:         }
 }
 [e :U 154 ]
-"96
-[; ;main.c: 96:     }
+"105
+[; ;main.c: 105:     }
 }
 [e :U 142 ]
 [e $U 143  ]
 [e :U 144 ]
-"97
-[; ;main.c: 97: }
+"106
+[; ;main.c: 106: }
 [e :UE 141 ]
 }

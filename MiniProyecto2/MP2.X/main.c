@@ -18,6 +18,7 @@
 #include "i2c.h"
 
 void setup(void) {
+    //Se configuran los puertos y triestados
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
@@ -30,11 +31,14 @@ void setup(void) {
     TRISE = 0;
     ANSEL = 0;
     ANSELH = 0;
+    //Se configuran las interrupciones
     INTCON = 0b11000000;
     PIE1 = 0b00100000;
+    //Se configura el baudrate a 9600
     SPBRGH = 0;
     SPBRG = 25;
     BAUDCTL = 0;
+    //Se configuran los registros de comunicacion USART
     TXSTA = 0b00100100;
     RCSTA = 0b10010000;
 }
@@ -43,7 +47,9 @@ void setup(void) {
 uint8_t uread;
 uint8_t iread;
 
+//Vector de interrupcion
 void __interrupt() isr(void) {
+    //Leer el RCREG si se tiene un dato disponible
     if (PIR1bits.RCIF == 1) {
         uread = RCREG;
         PIR1bits.RCIF = 0;
@@ -52,12 +58,14 @@ void __interrupt() isr(void) {
 
 void main(void) {
     setup();
+    //Iniciacion de I2C
     I2C_Master_Init(100000);
     while (1) {
-        
         I2C_Master_Start();
-        I2C_Master_Write(0x29);
+        //Indicar el registro a leer
+        I2C_Master_Write(0x09);
         I2C_Master_Wait();
+        //Guardar el dato recibido
         if (ACKSTAT == 0){
             iread = I2C_Master_Read(0);
             I2C_Master_Stop();
@@ -66,7 +74,7 @@ void main(void) {
             I2C_Master_Stop();
         }
         __delay_ms(200);
-        
+        //Configuracion de las LEDs Piloto
         switch (uread){
             case 0:
                 //Ninguna LED Piloto
@@ -89,9 +97,9 @@ void main(void) {
                 PORTB = 0;
                 break;
         }
-        
+        //Envio de datos USART
         if (TXSTAbits.TRMT == 1){
-            TXREG = 44;
+            TXREG = iread;
             __delay_ms(5);
         }
     }
