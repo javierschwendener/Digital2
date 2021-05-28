@@ -11,6 +11,7 @@ int P2;
 int P3;
 int P4;
 int inUse;
+String total;
 // Se establece el puerto del servidor
 WebServer server(80);
 // Se establece la red de conexion
@@ -64,6 +65,10 @@ void handleP4(){
   }
   server.send(200,"text/html",SP4);
 }
+void handleParking(){
+  total = inUse;
+  server.send(200,"text/html",total);
+}
 
 void setup() {
   // Se declaran los pines de salida para el 7 segmentos
@@ -91,6 +96,7 @@ void setup() {
   server.on("/readP2",handleP2);
   server.on("/readP3",handleP3);
   server.on("/readP4",handleP4);
+  server.on("/readParking",handleParking);
   // Se abre el servidor
   server.begin();
 }

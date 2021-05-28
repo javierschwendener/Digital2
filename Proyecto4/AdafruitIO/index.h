@@ -19,7 +19,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 <body>
 
 <h1 style="font-size:120;text-align:center;"><strong>Parqueo-matic</h1></strong>
-<h2 style="font-size:60;text-align:center;"><strong>Control de registro para parqueos</h2></strong>
+<h2 style="font-size:60;text-align:center;"><strong>Control de registro para parqueos - Libres actuales = <span id = "Parking"></span></h2></strong>
 
 <div class="card">
   <h1><strong>Parqueo 1: <span id="P1"></span></strong></h1>
@@ -82,6 +82,17 @@ function getData() {
   };
   xh4.open("GET", "readP4", true);
   xh4.send();
+
+  var par = new XMLHttpRequest();
+  par.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("Parking").innerHTML =
+      this.responseText;
+    }
+  };
+  par.open("GET", "readParking", true);
+  par.send();
+  
 }
 </script>
 </body>
